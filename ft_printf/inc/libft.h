@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:50:36 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/06/28 17:12:16 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:28:54 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int			content;
 	struct s_list	*next;
 }	t_list;
 
