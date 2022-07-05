@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:49:07 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 15:35:29 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:58:56 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,17 @@ int chek_duplicat(char **all_str, int i)
 		x++;
 	}
 	return (false);
+}
+
+int lst_size(t_list *list)
+{
+	int i;
+
+	i = 0;
+	while(list)
+	{
+		list = list->next;
+		i++;
+	}
+	return (i);
 }

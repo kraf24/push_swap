@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 18:54:47 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/06/28 17:12:37 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:05:01 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include "libft.h"
-# include <stdio.h>
 
 int		ft_putchar(int c);
 int		ft_gettype(va_list arg, const char form);

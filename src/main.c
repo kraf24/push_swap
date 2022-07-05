@@ -6,25 +6,11 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:34 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 15:58:28 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:52:12 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int lst_size(t_list *list)
-{
-	int i;
-
-	i = 0;
-	while(list)
-	{
-		ft_printf("%d ", list->content);
-		list = list->next;
-		i++;
-	}
-	return (i);
-}
 
 void free_lst(t_list *list)
 {
@@ -64,7 +50,6 @@ t_list *fill_stack(int argc, char *argv[])
 	i = 1;
 	while(i < argc)
 	{
-		ft_printf("%s\n", argv[i]);
 		if(int_chek(argv[i]))
 			error(ptr);
 		if(chek_duplicat(argv, i))
@@ -83,17 +68,11 @@ t_list *fill_stack(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
 	t_list *a_stack;
-	t_list *b_stack;
-	int size;
-	ft_printf("%i\n", argc);
+	t_list *b_stack = NULL;
+
+	(void)*b_stack;
 	a_stack = fill_stack(argc, argv);
-	(void)*b_stack
-	size = lst_size(a_stack);
-	if (size <= 3)
-		simpliest
-	if (size <= 6)
-		simpl
-	else
-		complicated
+	define(&a_stack, &b_stack);
+		//ft_printf("%d", a_stack->next->content);
 	return (0);
 }
