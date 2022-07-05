@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:34 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/06/30 15:25:24 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:58:28 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ t_list *fill_stack(int argc, char *argv[])
 	i = 1;
 	while(i < argc)
 	{
-		// if(i < argc)
-		// {
-		// 	free_lst(ptr);
-		// 	return (0);
-		// }
+		ft_printf("%s\n", argv[i]);
+		if(int_chek(argv[i]))
+			error(ptr);
+		if(chek_duplicat(argv, i))
+			error(ptr);
 		temp->content = ft_atoi(argv[i]);	
 		if(i < argc - 1)
 		{
@@ -83,15 +83,17 @@ t_list *fill_stack(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
 	t_list *a_stack;
-	//t_list *b_stack;
-
-	if(!(a_stack = fill_stack(argc, argv)))
-	{
-		write(2, "Error\n", 6);
-			return (0);	
-	}
-
-	lst_size(a_stack);
+	t_list *b_stack;
+	int size;
+	ft_printf("%i\n", argc);
+	a_stack = fill_stack(argc, argv);
+	(void)*b_stack
+	size = lst_size(a_stack);
+	if (size <= 3)
+		simpliest
+	if (size <= 6)
+		simpl
+	else
+		complicated
 	return (0);
-	
 }

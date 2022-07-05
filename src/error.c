@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 16:13:25 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 15:34:33 by gpinchuk         ###   ########.fr       */
+/*   Created: 2022/07/05 15:24:30 by gpinchuk          #+#    #+#             */
+/*   Updated: 2022/07/05 15:25:45 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/inc/ft_printf.h"
-#include <stdbool.h>
+#include "push_swap.h"
 
-int		int_chek(char *argv);
-void	error(t_list *ptr);
-void	free_lst(t_list *list);
-int		chek_duplicat(char **all_str, int i);
+void error(t_list *ptr)
+{
+	write(2, "error\n", 7);
+	free_lst(ptr);
+	exit(0);
+}
