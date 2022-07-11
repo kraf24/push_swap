@@ -6,11 +6,12 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:34:09 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 19:52:22 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/11 16:47:03 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "functions.h"
 
 void define( t_list **a_stack, t_list **b_stack)
 {
@@ -21,7 +22,7 @@ void define( t_list **a_stack, t_list **b_stack)
 	//ft_printf("%d", size);
 	if(size == 2 && (*a_stack)->content > (*a_stack)->next->content)
 	//ft_printf("%d", size);
-		rotate_a(a_stack);
+		swap_a(a_stack);
 	//else if (size == 3)
 		//simpliest(a_stack);
 	//else if (size <= 6)

@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:34 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 19:52:12 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:44:43 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ int main(int argc, char *argv[])
 	(void)*b_stack;
 	a_stack = fill_stack(argc, argv);
 	define(&a_stack, &b_stack);
-		//ft_printf("%d", a_stack->next->content);
+	while(a_stack)
+	{
+	ft_printf("%d ", a_stack->content);
+	a_stack = a_stack->next;
+	}
 	return (0);
 }

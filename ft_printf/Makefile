@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 LIB = libft.a
 LIB_D = libft
+ALL = lib
 SRC = src
 INC = inc
 OBJ = obj
@@ -26,6 +27,7 @@ $(NAME): $(OBJS)
 	@cp $(LIB_D)/$(LIB) .
 	@mv $(LIB) $(NAME)
 	@$(AR) $@ $^
+	mv $@ ../$(ALL)
 	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
 
 $(OBJ)/%.o:	$(SRC)/%.c $(OBJ)

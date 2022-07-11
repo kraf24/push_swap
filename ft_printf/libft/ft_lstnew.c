@@ -6,14 +6,14 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:04:30 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 19:43:35 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:55:21 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-t_list	*ft_lstnew(int content)
+t_list		*ft_lstnew(void *content)
 {
 	t_list	*ls;
 

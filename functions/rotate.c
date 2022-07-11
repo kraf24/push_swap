@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:25:19 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 20:01:52 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:43:01 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,11 @@
 void rotate(t_list **stack)
 {
 	t_list *temp;
-	t_list *new;
-	int data;
 
-	//redo
-
-	data = (*stack)->content;
 	temp = *stack;
 	*stack = (*stack)->next;
-	free(temp);
-	temp = *stack;
-	new = ft_lstnew(data);
-	ft_lstadd_back(stack , new);
+	ft_lstadd_back(stack , temp);
+	temp->next = NULL;
 }
 
 void rotate_a(t_list ** stack)

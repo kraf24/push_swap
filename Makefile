@@ -6,13 +6,14 @@
 #    By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 15:57:26 by gpinchuk          #+#    #+#              #
-#    Updated: 2022/06/28 16:14:14 by gpinchuk         ###   ########.fr        #
+#    Updated: 2022/07/11 16:22:53 by gpinchuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-LIB = libftprintf.a
+LIB = lib
 LIB_D = ft_printf
+LIB_F = functions
 SRC = src
 INC = inc
 OBJ = obj
@@ -20,6 +21,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I $(INC)
 SRC_F = $(wildcard $(SRC)/*.c)
 INC_F = $(wildcard $(INC)/*.h)
+LIB_ALL = $(wildcard $(LIB)/*.a)
 OBJ_F = $(SRC_F:.c=.o)
 OBJS = $(subst $(SRC),$(OBJ),$(OBJ_F))
 
@@ -31,7 +33,7 @@ DEF_COLOR = \033[0;39m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIB_D)/$(LIB)
+$(NAME): $(OBJS) $(LIB_ALL)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "$(GREEN)pipex compiled!$(DEF_COLOR)"
 
@@ -43,6 +45,8 @@ $(OBJ):
 	@mkdir -p $(OBJ)
 	@make -C $(LIB_D)
 	@echo "$(BLUE)libft is done!$(DEF_COLOR)"
+	@make -C $(LIB_F)
+	@echo "$(BLUE)functions is done!$(DEF_COLOR)"
 
 clean:
 	@rm -rf $(OBJ)
@@ -50,6 +54,7 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 	@make fclean -C $(LIB_D)
+	@make fclean -C $(LIB_F)
 	@echo "$(YELLOW)Evrything was cleaned $(DEF_COLOR)"
 
 re: fclean all
