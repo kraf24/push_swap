@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:34 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/11 15:44:43 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/07/13 17:17:08 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_list *fill_stack(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
+	
 	t_list *a_stack;
 	t_list *b_stack = NULL;
 
@@ -78,5 +79,13 @@ int main(int argc, char *argv[])
 	ft_printf("%d ", a_stack->content);
 	a_stack = a_stack->next;
 	}
+	ft_printf("/n");
+		while(b_stack)
+	{
+	ft_printf("%d ", b_stack->content);
+	b_stack = b_stack->next;
+	}
+	
 	return (0);
 }
+
