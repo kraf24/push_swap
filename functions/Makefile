@@ -6,7 +6,7 @@
 #    By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 14:59:49 by gpinchuk          #+#    #+#              #
-#    Updated: 2022/07/11 16:16:14 by gpinchuk         ###   ########.fr        #
+#    Updated: 2022/08/22 19:53:25 by gpinchuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR = ar rcs
 LIB = lib
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I. -I ../$(INC)
+CFLAGS = -Wall -Wextra -Werror -I ../$(INC)
 
 all: $(NAME)
 
