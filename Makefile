@@ -6,7 +6,7 @@
 #    By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 15:57:26 by gpinchuk          #+#    #+#              #
-#    Updated: 2022/07/11 16:22:53 by gpinchuk         ###   ########.fr        #
+#    Updated: 2022/08/22 19:57:51 by gpinchuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ $(OBJ)/%.o:	$(SRC)/%.c $(OBJ)
 
 $(OBJ):
 	@mkdir -p $(OBJ)
+	@mkdir -p $(LIB)
 	@make -C $(LIB_D)
 	@echo "$(BLUE)libft is done!$(DEF_COLOR)"
 	@make -C $(LIB_F)
