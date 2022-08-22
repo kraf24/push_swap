@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   buble_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 16:16:48 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/17 14:17:00 by gpinchuk         ###   ########.fr       */
+/*   Created: 2022/08/17 14:36:30 by gpinchuk          #+#    #+#             */
+/*   Updated: 2022/08/22 15:18:43 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void swap(t_list **stack)
+void	ft_swap(int *xp, int *yp)
 {
-	t_list *temp;
+	int	temp;
 
-	temp = *stack;
-	*stack = (*stack)->next;
-	temp->next = (*stack)->next;
-	(*stack)->next = temp;
+	temp = *xp;
+	*xp = *yp;
+	*yp = temp;
 }
 
-void swap_a(t_list **stack)
+int	ft_bubble_sort(int *arr, int n)
 {
-	swap(stack);
-	write(1, "sa\n", 3);
-}
-void swap_b(t_list **stack)
-{
-	swap(stack);
-	write(1, "sb\n", 3);
-}
-void swap_ab(t_list **stack_a, t_list **stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
-	write(1, "ss\n", 3);
+	int	i;
+	int	j;
+	int len;
+
+	len = n;
+	i = 0;
+	while (i < n - 1)
+	{
+		j = 0;
+		while (j < n - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+				ft_swap(&arr[j], &arr[j + 1]);
+			j++;
+		}
+		i++;
+	}
+	len = arr[(len / 2)];
+	return (len);
 }

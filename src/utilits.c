@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:49:07 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/05 19:58:56 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/22 18:18:06 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,11 @@ int lst_size(t_list *list)
 	}
 	return (i);
 }
+
+int move(int i, int size)
+{
+	if (i < (size / 2))
+		return (i);
+	else
+		return (i - size);
+}	

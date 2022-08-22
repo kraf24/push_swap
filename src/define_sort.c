@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:34:09 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/13 17:26:06 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/17 15:42:46 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,27 @@
 void define( t_list **a_stack, t_list **b_stack)
 {
 	int size;
-	(void)*b_stack;
+	t_list *temp;
 
 	size = lst_size(*a_stack);
-	//ft_printf("%d", size);
+	temp = *a_stack;
 	if(size == 2 && (*a_stack)->content > (*a_stack)->next->content)
-	//ft_printf("%d", size);
-		{push_b(a_stack, b_stack);
-		push_a(a_stack, b_stack);
-		push_a(a_stack, b_stack);}
-	//else if (size == 3)
-		//simpliest(a_stack);
-	//else if (size <= 6)
-		//simpl(a_stack, b_stack, );
-	//else if (size > 6)
-		//complicated();
+		swap_a(a_stack);
+	else if (size == 3)
+		simpliest(a_stack);
+	else if (size > 3 && size <= 6)
+	{
+		while (temp->next)
+		{
+			if (temp->content > temp->next->content)
+			{
+				simpl(a_stack, b_stack, size);
+				return ;
+			}
+			temp = temp->next;
+		}
+	}
+	else if (size > 6)
+		complicated(a_stack, b_stack, size);
+	return ;
 }

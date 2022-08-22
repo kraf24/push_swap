@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:35:44 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/13 18:53:04 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/22 15:33:16 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 void reverse(t_list **stack)
 {
-	t_list *temp;
-	while((*stack)->next->next)
-	temp = *stack;
-	
+	t_list	*tmp_last;
+	t_list	*previous;
+	t_list	*start;
+
+	if (!stack)
+		return ;
+	if (!(*stack)->next)
+		return ;
+	start = *stack;
+	tmp_last = start;
+	while (tmp_last->next)
+	{
+		previous = tmp_last;
+		tmp_last = tmp_last->next;
+	}
+	tmp_last->next = start;
+	previous->next = NULL;
+	*stack = tmp_last;
 }
 
 void reverse_a(t_list **stack)

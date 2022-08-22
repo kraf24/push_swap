@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:25:19 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/11 15:43:01 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/18 19:06:23 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void rotate(t_list **stack)
 void rotate_a(t_list ** stack)
 {
 	rotate(stack);
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 
 void rotate_b(t_list ** stack)
 {
 	rotate(stack);
-	write(1, "rb\n", 4);
+	write(1, "rb\n", 3);
 }
 
 void rotate_both(t_list ** a_stack, t_list ** b_stack)
 {
 	rotate(b_stack);
 	rotate(a_stack);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }
