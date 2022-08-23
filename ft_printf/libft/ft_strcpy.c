@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 15:24:30 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 12:22:57 by admin            ###   ########.fr       */
+/*   Created: 2021/08/13 13:42:05 by cmero             #+#    #+#             */
+/*   Updated: 2022/07/27 17:41:12 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error(t_list *ptr)
+char	*ft_strcpy(char *dest, char *src)
 {
-	write(2, "error\n", 7);
-	free_lst(ptr);
-	exit(0);
+	int	count;
+
+	count = 0;
+	while (src[count] != '\0')
+	{
+		dest[count] = src[count];
+		count++;
+	}
+	dest[count] = '\0';
+	return (dest);
 }

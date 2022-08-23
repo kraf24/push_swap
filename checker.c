@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 15:24:30 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 12:22:57 by admin            ###   ########.fr       */
+/*   Created: 2022/08/23 17:30:20 by admin             #+#    #+#             */
+/*   Updated: 2022/08/23 17:30:22 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf/libft/libft.h"
 
-void	error(t_list *ptr)
+int main(int argc, char *argv[])
 {
-	write(2, "error\n", 7);
-	free_lst(ptr);
-	exit(0);
+   get_next_line(STDIN_FILENO);
+   return (0);
 }

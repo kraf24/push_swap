@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:35:44 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/22 15:33:16 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/23 17:27:58 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse(t_list **stack)
+void	reverse(t_list **stack)
 {
 	t_list	*tmp_last;
 	t_list	*previous;
@@ -34,19 +34,19 @@ void reverse(t_list **stack)
 	*stack = tmp_last;
 }
 
-void reverse_a(t_list **stack)
+void	reverse_a(t_list **stack)
 {
 	write(1, "rra\n", 4);
 	reverse(stack);
 }
 
-void reverse_b(t_list **stack)
+void	reverse_b(t_list **stack)
 {
 	write(1, "rrb\n", 4);
 	reverse(stack);
 }
 
-void reverse_ab(t_list **stack_a, t_list **stack_b)
+void	reverse_ab(t_list **stack_a, t_list **stack_b)
 {
 	write(1, "rrr\n", 4);
 	reverse(stack_a);

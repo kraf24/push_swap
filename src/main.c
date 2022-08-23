@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:34 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/22 15:41:03 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/23 17:03:38 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_lst(t_list *list)
+void	free_lst(t_list *list)
 {
-	t_list *curent;
-	t_list *next;
+	t_list	*curent;
+	t_list	*next;
 
 	curent = list;
 	while (curent)
@@ -27,7 +27,7 @@ void free_lst(t_list *list)
 	list = NULL;
 }
 
-t_list *newnode(void)
+t_list	*newnode(void)
 {
 	t_list	*ls;
 
@@ -39,23 +39,23 @@ t_list *newnode(void)
 	return (ls);
 }
 
-t_list *fill_stack(int argc, char *argv[])
+t_list	*fill_stack(int argc, char *argv[])
 {
-	t_list *temp;
-	int i;
-	t_list *ptr;
+	t_list	*temp;
+	int		i;
+	t_list	*ptr;
 
 	ptr = newnode();
 	temp = ptr;
 	i = 1;
-	while(i < argc)
+	while (i < argc)
 	{
-		if(int_chek(argv[i]))
+		if (int_chek(argv[i]))
 			error(ptr);
-		if(chek_duplicat(argv, i))
+		if (chek_duplicat(argv, i))
 			error(ptr);
-		temp->content = ft_atoi(argv[i]);	
-		if(i < argc - 1)
+		temp->content = ft_atoi(argv[i]);
+		if (i < argc - 1)
 		{
 			temp->next = newnode();
 			temp = temp->next;
@@ -65,27 +65,16 @@ t_list *fill_stack(int argc, char *argv[])
 	return (ptr);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	
-	t_list *a_stack;
-	t_list *b_stack = NULL;
+	t_list	*a_stack;
+	t_list	*b_stack;
 
-	(void)*b_stack;
+	b_stack = NULL;
 	a_stack = fill_stack(argc, argv);
 	define(&a_stack, &b_stack);
-	// while(a_stack)
-	// {
-	// ft_printf("%d ", a_stack->content);
-	// a_stack = a_stack->next;
-	// }
-	// ft_printf("\n");
-	// 	while(b_stack)
-	// {
-	// ft_printf("%d ", b_stack->content);
-	// b_stack = b_stack->next;
-	// }
-	
+	free_lst(a_stack);
+	if (b_stack)
+		free_lst(b_stack);
 	return (0);
 }
-

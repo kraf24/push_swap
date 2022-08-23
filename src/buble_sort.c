@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buble_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 14:36:30 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/22 15:18:43 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:46:19 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_bubble_sort(int *arr, int n)
 {
 	int	i;
 	int	j;
-	int len;
+	int	len;
 
 	len = n;
 	i = 0;
