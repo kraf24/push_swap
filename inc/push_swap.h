@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:25 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 17:00:23 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/23 18:33:20 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ int			ft_bubble_sort(int *arr, int n);
 
 void		push_to_b(t_list **stack_a, t_list **stack_b, int size);
 
+/*main*/
+void		free_lst(t_list *list);
+t_list		*fill_stack(int argc, char *argv[]);
+
 /*utilits*/
 int			int_chek(char *argv);
-void		free_lst(t_list *list);
 void		bst_move(int cmp_move, int *best_move, int *i, int x);
 int			chek_duplicat(char **all_str, int i);
 int			move(int i, int size);
