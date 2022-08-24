@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:50:36 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/27 17:41:22 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/24 19:06:25 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 1
 # endif
 
 typedef struct s_list
@@ -78,4 +78,6 @@ size_t		ft_strlcpy_get(char *dst, const char *src, size_t dstsize);
 char		*ft_strchr_get(const char *s, int c);
 char		*ft_strcpy(char *dest, char *src);
 
+char		*get_untrimed(char *left_over, int fd);
+char		*get_left_over(char *left_over);
 #endif

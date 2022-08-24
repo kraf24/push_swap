@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:25:19 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 17:29:00 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 19:29:43 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,10 @@ void	rotate_both(t_list **a_stack, t_list **b_stack)
 	rotate(b_stack);
 	rotate(a_stack);
 	write(1, "rr\n", 3);
+}
+
+void	rotate_both_no_output(t_list **a_stack, t_list **b_stack)
+{
+	rotate(b_stack);
+	rotate(a_stack);
 }

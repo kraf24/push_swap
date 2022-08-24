@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:16:48 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 17:27:06 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 19:29:36 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,10 @@ void	swap_ab(t_list **stack_a, t_list **stack_b)
 	swap(stack_a);
 	swap(stack_b);
 	write(1, "ss\n", 3);
+}
+
+void	swap_ab_no_output(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
 }

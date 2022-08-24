@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buble_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 14:36:30 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 16:46:19 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 19:29:23 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	ft_bubble_sort(int *arr, int n)
 		}
 		i++;
 	}
-	len = arr[(len / 2)];
+	len = arr[len / 2];
 	return (len);
 }

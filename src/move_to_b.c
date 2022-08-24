@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 14:41:57 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 12:20:27 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 18:59:30 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_find_mid(t_list **stack_a)
 	temp = *stack_a;
 	len = ft_lstsize(*stack_a);
 	arr = (int *)malloc(sizeof(int) * len);
-	while (temp->next)
+	while (temp)
 	{
 		arr[x] = temp->content;
 		temp = temp->next;
@@ -87,8 +87,8 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int size)
 
 	x = 0;
 	num[0] = ft_find_smallest(stack_a);
-	num[1] = ft_find_bigest(stack_a);
-	num[2] = ft_find_mid(stack_a);
+	num[1] = ft_find_mid(stack_a);
+	num[2] = ft_find_bigest(stack_a);
 	while (x < size)
 	{
 		if (cheker(stack_a, num))

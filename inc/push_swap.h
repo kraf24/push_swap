@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:13:25 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 18:33:20 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 19:17:37 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void		complicated(t_list **stack_a, t_list **stack_b, int size);
 
 void		define( t_list **a_stack, t_list **b_stack);
 
+/*error*/
 void		error(t_list *ptr);
+int			int_chek(char *argv);
 
 int			ft_find_smallest(t_list **stack_a);
 
@@ -38,16 +40,16 @@ int			ft_bubble_sort(int *arr, int n);
 
 void		push_to_b(t_list **stack_a, t_list **stack_b, int size);
 
-/*main*/
+/*define_sort*/
 void		free_lst(t_list *list);
 t_list		*fill_stack(int argc, char *argv[]);
 
 /*utilits*/
-int			int_chek(char *argv);
 void		bst_move(int cmp_move, int *best_move, int *i, int x);
 int			chek_duplicat(char **all_str, int i);
 int			move(int i, int size);
 int			lst_size(t_list *list);
+int			check_sorted(t_list *stack);
 
 /*simpl_sort*/
 void		simpliest(t_list **stack);

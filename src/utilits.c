@@ -3,30 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   utilits.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:49:07 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 16:44:43 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 19:15:43 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	int_chek(char *argv)
+int	check_sorted(t_list *stack)
 {
-	int	i;
-
-	i = 0;
-	while (argv[i])
+	while (stack->next)
 	{
-		if (argv[i] == '-')
-			i++;
-		if (!(ft_isdigit(argv[i])))
-			return (true);
-		i++;
+		if (stack->content > stack->next->content)
+		{
+			return (0);
+		}
+		stack = stack->next;
 	}
-	return (false);
+	return (1);
 }
 
 void	bst_move(int cmp_move, int *best_move, int *i, int x)

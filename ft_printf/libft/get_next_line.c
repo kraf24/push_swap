@@ -5,72 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 15:38:33 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/07/28 18:19:12 by gpinchuk         ###   ########.fr       */
+/*   Created: 2022/05/10 13:12:19 by fstaryk           #+#    #+#             */
+/*   Updated: 2022/08/24 19:05:59 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_get(char *string, char *buff)
+char	*trim_ret_str(char *left_over)
 {
-	size_t	n1;
-	size_t	len;
-	char	*str;
+	int		ind;
+	char	*ret;
 
-	if (!string)
-	{
-		string = (char *)calloc(sizeof(char), 1);
-		string[0] = '\0';
-	}
-	if (!string || !buff)
+	ind = 0;
+	if (!left_over[0])
 		return (NULL);
-	n1 = ft_strlen(string);
-	len = ft_strlen(buff) + (n1) + 1;
-	str = (char *)calloc(len, sizeof(char));
-	if (str == NULL)
-	{
+	while (left_over[ind] && left_over[ind] != '\n')
+		ind++;
+	ret = (char *)malloc(sizeof(char) * (ind + 2));
+	if (!ret)
 		return (NULL);
-	}
-	ft_strlcpy(str, string, ft_strlen(string) + 1);
-	ft_strlcpy(&str[n1], buff, ft_strlen(buff) + 1);
-	free(string);
-	return (str);
-}
-
-char	*ft_read_from_file(int fd, char *left)
-{
-	char	*buff;
-	int		size;
-
-	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buff)
-		return (NULL);
-	size = 0;
-	while (!(ft_strchr_get(left, '\n')))
+	ind = 0;
+	while (left_over[ind] && left_over[ind] != '\n')
 	{
-		size = read(fd, buff, BUFFER_SIZE);
-		if (size == -1)
-		{
-			free(buff);
-			return (NULL);
-		}
-		buff[size] = '\0';
-		left = ft_strjoin_get(left, buff);
+		ret[ind] = left_over[ind];
+		ind++;
 	}
-	free(buff);
-	return (left);
+	if (left_over[ind] == '\n')
+	{
+		ret[ind] = left_over[ind];
+		ind++;
+	}
+	ret[ind] = 0;
+	return (ret);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*string;
-	static char	*left;
+	static char	*left_over;
+	char		*ret;
 
-	left = ft_read_from_file(fd, left);
-	if (!left || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	string = ft_new_string(left);
-	left = ft_get_new_string(left);
-	return (string);
+	left_over = get_untrimed(left_over, fd);
+	if (!left_over)
+	{
+		return (NULL);
+	}
+	ret = NULL;
+	ret = trim_ret_str(left_over);
+	left_over = get_left_over(left_over);
+	return (ret);
 }

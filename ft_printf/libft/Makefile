@@ -6,7 +6,7 @@
 #    By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 14:59:49 by gpinchuk          #+#    #+#              #
-#    Updated: 2022/07/27 17:39:45 by gpinchuk         ###   ########.fr        #
+#    Updated: 2022/08/24 17:23:09 by gpinchuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ bonus = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 b_obj = $(bonus:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -I. -I../inc
 
 all: $(NAME)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:35:44 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 17:27:58 by admin            ###   ########.fr       */
+/*   Updated: 2022/08/24 19:26:29 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ void	reverse_b(t_list **stack)
 void	reverse_ab(t_list **stack_a, t_list **stack_b)
 {
 	write(1, "rrr\n", 4);
+	reverse(stack_a);
+	reverse(stack_b);
+}
+
+void	reverse_ab_no_output(t_list **stack_a, t_list **stack_b)
+{	
 	reverse(stack_a);
 	reverse(stack_b);
 }

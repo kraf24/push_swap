@@ -3,71 +3,107 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 15:03:15 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/23 17:29:56 by admin            ###   ########.fr       */
+/*   Created: 2022/05/10 13:12:33 by fstaryk           #+#    #+#             */
+/*   Updated: 2022/08/24 19:05:56 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_new_string(char *string)
+char	*ft_strjoin_del1(char *left_over, char *buff)
 {
-	size_t		size;
-	char		*str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	size = 0;
-	if (!string[size])
+	if (!left_over)
+	{
+		left_over = (char *)malloc(1 * sizeof(char));
+		left_over[0] = '\0';
+	}
+	if (!left_over || !buff)
 		return (NULL);
-	while (string[size] != '\n' && string[size])
-		size++;
-	str = (char *)malloc(sizeof(char) * (size + 2));
-	if (!str)
+	str = malloc(sizeof(char) * ((ft_strlen(left_over) + ft_strlen(buff)) + 1));
+	if (str == NULL)
 		return (NULL);
-	ft_strlcpy(str, string, size + 2);
+	i = -1;
+	j = 0;
+	if (left_over)
+		while (left_over[++i] != '\0')
+			str[i] = left_over[i];
+	while (buff[j] != '\0')
+		str[i++] = buff[j++];
+	str[ft_strlen(left_over) + ft_strlen(buff)] = '\0';
+	free(left_over);
 	return (str);
 }
 
-char	*ft_get_new_string(char *string)
-{
-	size_t	size;
-	int		i;
-	char	*new_str;
-
-	i = 0;
-	size = ft_strlen(string);
-	while (string[i] && string[i] != '\n')
-		i++;
-	if (!string[i] || !string[i + 1])
-	{
-		free(string);
-		return (NULL);
-	}
-	new_str = (char *)calloc(sizeof(char), (size - i));
-	if (!new_str)
-		return (NULL);
-	i++;
-	ft_strlcpy(new_str, &string[i], size - i + 1);
-	free(string);
-	free(new_str);
-	return (new_str);
-}
-
-char	*ft_strchr_get(const char *s, int c)
+int	get_char_ind_in_str(char c, char *str)
 {
 	int	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	while (s[i])
+	if (!str)
+		return (-1);
+	while (str[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
+		if (str[i] == c)
+			return (i);
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (-1);
+}
+
+char	*get_left_over(char *left_over)
+{
+	int		ind;
+	int		count;
+	int		str_len;
+	char	*ret;
+
+	ind = 0;
+	while (left_over[ind] && left_over[ind] != '\n')
+		ind++;
+	if (!left_over[ind])
+	{
+		free(left_over);
+		return (NULL);
+	}
+	str_len = ft_strlen(left_over);
+	ret = (char *)malloc(sizeof(char) * (str_len - ind + 1));
+	if (!ret)
+		return (NULL);
+	ind += 1;
+	count = 0;
+	while (left_over[ind])
+		ret[count++] = left_over[ind++];
+	ret[count] = 0;
+	free(left_over);
+	return (ret);
+}
+
+char	*get_untrimed(char *left_over, int fd)
+{
+	char	*buf;
+	int		red;
+
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL);
+	red = 1;
+	while (get_char_ind_in_str('\n', left_over) == -1 && red != 0)
+	{
+		red = read(fd, buf, BUFFER_SIZE);
+		if (red == -1)
+		{
+			free(buf);
+			return (NULL);
+		}
+		buf[red] = 0;
+		left_over = ft_strjoin_del1(left_over, buf);
+	}
+	free(buf);
+	return (left_over);
 }

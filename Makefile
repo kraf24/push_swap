@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: admin <admin@student.42.fr>                +#+  +:+       +#+         #
+#    By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 15:57:26 by gpinchuk          #+#    #+#              #
-#    Updated: 2022/08/23 19:00:48 by admin            ###   ########.fr        #
+#    Updated: 2022/08/24 19:31:27 by gpinchuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ LIB_ALL = $(wildcard $(LIB)/*.a)
 OBJ_F = $(SRC_F:.c=.o)
 OBJS = $(subst $(SRC),$(OBJ),$(OBJ_F))
 
-BONUS = cheker
+BONUS = checker
+BONUS_F = src/simpl_sort.c src/utilits.c src/define_sort.c src/error.c \
+			src/complicated_sort.c src/move_to_b.c src/best_moves.c src/buble_sort.c
 
 GREEN = \033[0;92m
 YELLOW = \033[0;93m
@@ -53,7 +55,8 @@ $(OBJ):
 bonus: $(BONUS)
 
 $(BONUS):
-	$(CC) -Wall -Wextra -Werror -I $(INC) $(LIB_ALL) checker.c -o $@
+	@$(CC)  -I $(INC) $(LIB_ALL) $(BONUS_F) checker.c -o $@
+	@echo "$(GREEN)checker is done $(DEF_COLOR)"
 
 clean:
 	@rm -rf $(OBJ)
