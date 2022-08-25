@@ -6,12 +6,14 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:34:09 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/24 19:29:07 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:14:05 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "functions.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void	free_lst(t_list *list)
 {
@@ -45,6 +47,7 @@ t_list	*fill_stack(int argc, char *argv[])
 	t_list	*temp;
 	int		i;
 	t_list	*ptr;
+	long	x;
 
 	ptr = newnode();
 	temp = ptr;
@@ -54,6 +57,9 @@ t_list	*fill_stack(int argc, char *argv[])
 		if (int_chek(argv[i]))
 			error(ptr);
 		if (chek_duplicat(argv, i))
+			error(ptr);
+		x = ft_atoi(argv[i]);
+		if (x > INT32_MAX || x < INT32_MIN)
 			error(ptr);
 		temp->content = ft_atoi(argv[i]);
 		if (i < argc - 1)

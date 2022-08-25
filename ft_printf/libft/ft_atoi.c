@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 18:54:05 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/24 17:04:16 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:54:49 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static int	chek_minus(const char *str, int *num)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	a;
-	int	num;
-	int	b;
+	long	a;
+	int		num;
+	int		b;
 
 	a = 0;
 	num = 0;

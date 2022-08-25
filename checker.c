@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:30:20 by admin             #+#    #+#             */
-/*   Updated: 2022/08/24 19:27:51 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:47:00 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "push_swap.h"
 #include "functions.h"
 
-int compair(t_list **stack_a, t_list **stack_b, char *input)
+int	compair(t_list **stack_a, t_list **stack_b, char *input)
 {
 	if (!ft_strncmp(input, "pa\n", 3))
-		push(stack_a, stack_b);
-	else if (!ft_strncmp(input, "pb\n", 3))
 		push(stack_b, stack_a);
+	else if (!ft_strncmp(input, "pb\n", 3))
+		push(stack_a, stack_b);
 	else if (!ft_strncmp(input, "sa\n", 3))
 		swap(stack_a);
 	else if (!ft_strncmp(input, "sb\n", 3))
@@ -43,36 +43,36 @@ int compair(t_list **stack_a, t_list **stack_b, char *input)
 	return (1);
 }
 
-void output(t_list *stack_a, t_list *stack_b)
+void	output(t_list *stack_a, t_list *stack_b)
 {
-	if(check_sorted(stack_a) && stack_b == NULL)
+	if (check_sorted(stack_a) && stack_b == NULL)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	t_list *stack_a;
-	t_list *stack_b;
-	char *input;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	char	*input;
 
 	if (argc < 2)
 		return (0);
 	stack_a = fill_stack(argc, argv);
 	stack_b = NULL;
-	while(1)
+	while (1)
 	{
 		input = get_next_line(STDIN_FILENO);
 		if (!input)
-			break;
+			break ;
 		if (!compair(&stack_a, &stack_b, input))
 		{
 			error(stack_a);
 			free_lst(stack_b);
 		}
 	}
-	//output(stack_a, stack_b);
+	output(stack_a, stack_b);
 	free_lst(stack_a);
 	free_lst(stack_b);
 	return (0);

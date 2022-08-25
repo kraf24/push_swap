@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:50:36 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/24 19:06:25 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/25 13:55:26 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
 int			ft_lstsize(t_list *lst);
-int			ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
 void		ft_lstadd_front(t_list **lst, t_list *new);

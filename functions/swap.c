@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:16:48 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/24 19:29:36 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:31:06 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	swap(t_list **stack)
 {
 	t_list	*temp;
 
+	if (!*stack)
+		return ;
 	temp = *stack;
 	*stack = (*stack)->next;
 	temp->next = (*stack)->next;

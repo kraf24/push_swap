@@ -6,7 +6,7 @@
 /*   By: gpinchuk <gpinchuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:24:30 by gpinchuk          #+#    #+#             */
-/*   Updated: 2022/08/24 19:28:49 by gpinchuk         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:37:20 by gpinchuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error(t_list *ptr)
 {
-	write(2, "error\n", 7);
+	write(2, "Error\n", 7);
 	free_lst(ptr);
 	exit(0);
 }
